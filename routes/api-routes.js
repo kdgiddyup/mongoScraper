@@ -86,7 +86,12 @@ app.post("/addnote", function(req, res) {
   
   console.log("Adding note; req.body:",req.body);
   // find article by _id and 
-  Article.update({ _id: req.body.articleId}, { notes: req.body.noteText }
+  Article.update({ _id: req.body.articleId}, { notes: req.body.noteText }, function(err){
+    if(err)
+      console.log("Error adding note:",err)
+    else
+      console.log("Note added to saved article.")
+    }
     );
   
   res.redirect("/saved");
@@ -94,6 +99,7 @@ app.post("/addnote", function(req, res) {
 
 // Route to retrieve notes, if any, for given article
 app.get("/getnote/:id", function(req,res){
+  console.log("Seeking notes for",req.params.id);
   Article.find({
     _id:req.params.id}, function(err,found){
       if(err)

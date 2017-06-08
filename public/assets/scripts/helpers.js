@@ -29,7 +29,7 @@ $(document).ready(function(){
   $(".notes").on("click", function(){
       $.get("/getnote/"+$(this).attr("data-article-id"), function(data){
           if(data){
-              console.log("note data:",data);
+              $("#noteText").html(data[0].notes);
           }
       });
 
