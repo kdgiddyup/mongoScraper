@@ -16,7 +16,13 @@ mongoose.Promise = Promise;
 /*
 mongodb://heroku_3v965qzl:88jd1n8tfikbijj1n9kh1h4dso@ds115752.mlab.com:15752/heroku_3v965qzl
 */
-mongoose.connect("mongodb://localhost/mongoscraper");
+
+
+mongoose.connect(process.env.MONGODB_URI);
+//for development:
+//mongoose.connect("mongodb://localhost/mongoscraper");
+
+
 // Hook mongoose connection to db
 var db = mongoose.connection;
 
