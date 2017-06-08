@@ -1,0 +1,14 @@
+{{#each articles}}
+    <div class="article row">
+        <div class="article well">
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                <div data-headline-index={{@index}} class="headline"><h2><a data-link-index={{@index}} href="{{this.link}}" target="_blank">{{this.headline}}</a></h2>
+                    <p data-summary-index={{@index}} class="summary">{{this.summary}}</p>
+                </div>
+            </div><!-- end article column -->
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <button data-index={{@index}} class="save btn btn-primary">Save</button>
+            </div><!-- /end save btn col-->
+        </div><!-- /end well -->
+    </div><!-- /end article row-->
+{{/each}}

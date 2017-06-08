@@ -1,0 +1,11 @@
+nav li {
+    margin: 0 10px 0 0;
+    display: inline-flex;
+}
+
+nav a:visited, nav a {
+    color: #fff; 
+}
+.article.well {
+    overflow: auto;
+}

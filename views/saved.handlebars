@@ -1,0 +1,27 @@
+<!-- saved articles UI -->
+<!-- page receives from "get" "/saved" route an array, found, of article refs as:
+    [
+        {
+        headline:<headline string>,
+        link: <link>,
+        summary: <summary
+        },
+    ]
+    -->
+<div class="container">
+    <div class="articles row">
+        <div class="col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+            <h2>Your saved articles</h2>
+            <!-- do  articles exist? -->
+            {{#if found}}
+            <!-- they do -->
+                {{>show-saved}}
+            {{else}}
+            <!-- they do not -->
+                <p>No articles Saved! Try <a href="/scrape">scraping for some</a>, then click "Save".</p>
+            {{/if}}
+        </div>
+    </div><!--/end articles row-->
+</div><!-- /end main container-->
+
+
