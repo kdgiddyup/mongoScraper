@@ -35,7 +35,6 @@ var Article = require("./models/article.js");
 
 // Initialize Express
 var app = express();
-var port = 8080;
 
 // Configure app with morgan and body parser
 app.use(logger("dev"));
@@ -56,8 +55,8 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-
+var port = 3000;
 // Listen on assigned port
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
   console.log("App running on port "+port+"!");
 });
