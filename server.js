@@ -11,16 +11,10 @@ var mongoose = require("mongoose");
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
-// Database configuration for mongoose
-// db for heroku deployment 
-/*
-mongodb://heroku_3v965qzl:88jd1n8tfikbijj1n9kh1h4dso@ds115752.mlab.com:15752/heroku_3v965qzl
-*/
 
+// local or deployed? Use the right mongo db
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mongoscraper" );
 
-mongoose.connect(process.env.MONGODB_URI);
-//for development:
-//mongoose.connect("mongodb://localhost/mongoscraper");
 
 
 // Hook mongoose connection to db
