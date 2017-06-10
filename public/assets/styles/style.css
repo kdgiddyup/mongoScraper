@@ -7,7 +7,9 @@ nav li {
     margin: 0 10px 0 0;
     display: inline-flex;
 }
-
+p {
+    font-size: 1.3em;
+}
 button a, button a:visited, button a:hover {
     color: #fff;
     text-decoration: none;
