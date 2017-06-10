@@ -16,14 +16,9 @@ $(document).ready(function(){
           link: $("a[data-link-index='"+index+"']").attr("href"),
           summary: $(".summary[data-summary-index='"+index+"']").text()
       };
-      console.log("This article",thisArticle);
       $.post("/save",thisArticle);
+      $(".article[data-index='"+ index +"']").remove();
   })
-
-  // add click listeners to remove buttons
- $(".remove").on("click",function(){
-     $.get("/remove/"+$(this).attr("data-article-id"))
- });
 
   // populate note form with any existing notes and add article id to note form when note button is clicked
   $(".notes").on("click", function(){
@@ -41,4 +36,5 @@ $(document).ready(function(){
         });
         $("#note-form").append(idInput);
   });
+
 }); // end document ready function

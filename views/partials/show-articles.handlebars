@@ -1,6 +1,6 @@
 {{#each articles}}
-    <div class="article row">
-        <div class="article well">
+    <div data-index={{@index}} class="article row">
+        <div class="well">
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                 <div data-headline-index={{@index}} class="headline"><h2><a data-link-index={{@index}} href="{{this.link}}" target="_blank">{{this.headline}}</a></h2>
                     <p data-summary-index={{@index}} class="summary">{{this.summary}}</p>
