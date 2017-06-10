@@ -14,6 +14,7 @@ button a, button a:visited, button a:hover {
 }
 .well {
     overflow: auto;
+    box-shadow: 2px 5px 15px -5px #000;
 }
 article.well a:hover {
     color: #000;
