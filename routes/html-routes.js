@@ -1,20 +1,22 @@
-// scraper tools
-
+// scraper tools:
+/****************/
 // scrapes the html
-var cheerio = require("cheerio");
-// for getting HTML from URLs
+var cheerio = require( "cheerio" );
 
-var request = require("request");
+// for getting HTML from URLs
+var request = require ( "request" );
+
 module.exports = function(app) {
-    // index route renders main and scrapes headlines
-// "get"" api route to scrape mcclatchydc.com politics section and render data to index.handlebars
-app.get("/", function(req,res) {
-  console.log("Route hit");
-  // get some poppin' fresh html
+  // index route renders main and scrapes headlines
+  // "get"" api route to render index page
+  app.get("/", function(req,res){
+
+ // get some poppin' fresh html form the passed in market index
   request("http://www.mcclatchydc.com/news/politics-government/", function (error, response, html){
 
     // set up our jquery-like $ function for cheerio selecting on our html
     var $ = cheerio.load(html);
+  
     // we need a box in which to put our articles objects
     var articleArr = [];
     $("article").each(function(index,element){

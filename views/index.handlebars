@@ -1,5 +1,5 @@
 <!-- index UI -->
-<!-- page receives from "get" "/scrape" route an array, articles, of article refs as:
+<!-- page receives from "/:id" post route: 'articles' array:
     [
         {
         headline:<headline string>,
@@ -7,7 +7,10 @@
         summary: <summary
         },
     ]
+
+    from "/" get route: 'markets' array to build a market list 
     -->
+
 <div class="articles-wrapper container">
     <div class="articles row">
         <div class="col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
@@ -17,7 +20,15 @@
                 {{>show-articles}}
             {{else}}
             <!-- they do not -->
-                <p>No articles yet! Try <a href="/">scraping for them</a></p>
+                <p>No articles yet! Try scraping for them by selecting a market:</p>
+                <!-- build a bootstrap dropdown -->
+                <div class="dropdown">
+                    <ul class="dropdown-menu">
+                        {{#each markets}}
+                            <li class="marketItem" data-market-id={{@index}}>{{this.market}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
             {{/if}}
         </div>
     </div><!--/end articles row-->

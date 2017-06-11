@@ -38,9 +38,9 @@ app.get("/saved", function(req,res){
 app.get("/remove/:id", function(req,res){
   Article.remove({_id: req.params.id}, function(err){
     if (err) {
-    console.log('There was an error removing document:',err);
-  };
-  res.redirect("/saved");
+      console.log('There was an error removing document:',err);
+    };
+    res.json({message: true,id:req.params.id});
    });
 // return user to saved screen
   

@@ -1,5 +1,5 @@
 {{#each found}}
-    <div class="article row">
+    <div data-id={{this._id}} class="article row">
         <div class="article well">
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                 <div data-saved-headline={{@index}} class="savedHeadline">
@@ -12,7 +12,7 @@
                 <button type="button" data-article-id={{this._id}} data-toggle="modal" data-target="#noteModal" data-saved-index={{@index}} class="notes btn btn-primary">Annotate</button>
                 
                 <!-- render a delete button -->
-                <button type="button" data-article-id={{this._id}} data-delete-index={{@index}} class="remove btn btn-danger"><a href="/remove/{{this._id}}">Remove</a></button>
+                <button type="button" data-article-id={{this._id}} data-delete-index={{@index}} class="remove btn btn-danger">Remove</button>
 
             </div><!-- /end save btn col-->
         </div><!-- /end well -->
@@ -35,6 +35,7 @@
             <div id="note-form" class="form-group">
                 <label for="noteText">Write/edit note here</label>
                 <textarea class="form-control" name="noteText" id="noteText" rows="3"></textarea>
+                <input name="articleId" id="articleId" type="hidden"/>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
